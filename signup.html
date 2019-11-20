@@ -4,24 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/style.css">
   <title>ユーザー登録</title>
-  <style>
-  </style>
 </head>
 <body>
-<form action="" class="signup__form">
-  <dl>
-    <dt class="form__label"><label class="form__labelName">名前（漢字）</label></dt>
-    <dd><input type="text" name="user" class=""></dd>
-  </d;>
+  <form action="" class="signup__form">
+    <dl>
+      <dt class="form__label"><label class="form__labelName">名前（漢字）</label></dt>
+      <dd><input type="text" name="user" class="form__input w90"></dd>
+    </dl>
+    <dl>
+      <!-- ふりがなは自動入力にさせたい -->
+      <dt class="form__label"><label class="form__labelKanaName">名前（カナ）</label></dt>
+      <dd><input type="text" name="" class="form__input w90"></dd>
+    </dl>
+    <dl>
+      <dt class="form__label"><label class="form__labelBirth">誕生日</label></dt>
+      <dd><input type="text" name="" class="form__input w90"></dd>
+    </dl>
+    <dl>
+      <dt class="form__label">
+        <label class="form__labelPostCode">郵便番号</label>
+        <span class="form__attention">[ハイフンなし]</span>
+      </dt>
+      <dd class="d-flex"><span class="mark__post">〒</span><input type="text" name="" class="form__input form__inputpost"></dd>
+    </dl>
+    <dl>
+      <dt class="form__label"><label class="form__labelAddress">住所</label></dt>
+      <dd><input type="text" name="" class="form__input w90"></dd>
+    </dl>
+    <dl>
+      <dt class="form__label">
+        <label class="form__labelPhoneNum">電話番号</label>
+        <span class="form__attention">[ハイフンなし]</span>
+      </dt>
+      <dd><input type="text" name="" class="form__input w90"></dd>
+    </dl>
+    <dl>
+      <!-- メールアドレスは自動その場でデータベースと照合できないか？ -->
+      <dt class="form__label"><label class="form__labelEmail">メールアドレス</label></dt>
+      <dd><input type="text" name="" class="form__input w90"></dd>
+      <span class="form__attention">メールアドレスはログインで使用します。</span>
+    </dl>
+    <dl>
+      <dt class="form__label">
+        <label class="form__labelNickname">ニックネーム</label>
+        <span class="form__attention">[8文字以内]</span>
+      </dt>
+      <dd><input type="text" name="" class="form__input w90"></dd>
+      <span class="form__attention">あとで変更可能です。</span>
+    </dl>
+    <dl>
+      <dt class="form__label">
+        <label class="form__labelPassword">パスワード</label>
+        <span class="form__attention">[何文字以内]</span>
+      </dt>
+      <dd><input type="text" name="" class="form__input w90"></dd>
+    </dl>
 
-  <input type="submit" value="submit">
-</form>
+    <input type="submit" value="登録内容を確認する" class="form__submit">
+
+  </form>
 </body>
 
-  <!-- ふりがなは自動入力できないか？ -->
 
-  <!-- メールアドレスはログインに使用する -->
-  <!-- メールアドレスは自動その場でデータベースと照合できないか？ -->
-
-  <!-- ニックネームはあとで変更出来るようにする -->
