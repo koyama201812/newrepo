@@ -5,14 +5,154 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>sample</title>
+  <style>
+  .table__designDB {
+    text-align: center;
+  }
+  </style>
 </head>
 <body>
-  <h1>さんぷる</h1>
-  <ul>
-    <li>list</li>
-  </ul>
+  <h1>ユーザーテーブル定義書を真面目にかいてみた</h1>
 
-  <button>ぷしゅ</button>
+  <table class="table__designDB" border="1px solid #fff">
+    <thead>
+      <tr>
+        <th>テーブル論理名</th>
+        <th>テーブル物理名</th>
+        <th>カラム論理名</th>
+        <th>カラム物理名</th>
+        <th>PK</th>
+        <th>型</th>
+        <th>NOT NULL</th>
+        <th>AUTO INCREMENT</th>
+        <th>DEFAULT</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>ID</td>
+        <td>id</td>
+        <td>○</td>
+        <td>increment</td>
+        <td>○</td>
+        <td>○</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>名前（漢字）</td>
+        <td>name</td>
+        <td>-</td>
+        <td>varcher(20)</td>
+        <td>○</td>
+        <td>-</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>ふりがな</td>
+        <td>kana_name</td>
+        <td>-</td>
+        <td>varchar(20)</td>
+        <td>○</td>
+        <td>-</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr> <!-- date型でいけるのかな-->
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>誕生日</td>
+        <td>date</td>
+        <td>-</td>
+        <td>integer</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr> <!-- 郵便番号はハイフンなしにするのでinteger(7桁？validation)-->
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>郵便番号</td>
+        <td>postcode</td>
+        <td>-</td>
+        <td>integer</td>
+        <td>○</td>
+        <td>-</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>住所</td>
+        <td>address</td>
+        <td>-</td>
+        <td>varchar(100)</td>
+        <td>○</td>
+        <td>-</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr> <!-- 電話番号はハイフンなしにするのでinteger(10/11桁validation)-->
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>電話番号</td>
+        <td>phonenumber</td>
+        <td>-</td>
+        <td>integer</td>
+        <td>○</td>
+        <td>-</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr> <!-- emailは正規表現でバリデーションかな(さてどうやるか) -->
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>メールアドレス</td>
+        <td>email</td>
+        <td>-</td>
+        <td>varchar(100)</td>
+        <td>○</td>
+        <td>-</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>ニックネーム</td>
+        <td>nickname</td>
+        <td>-</td>
+        <td></td>
+        <td>○</td>
+        <td>-</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      <tr> <!-- 暗号化できるか 8文字以上にしとくか -->
+        <td>ユーザー</td>
+        <td>user</td>
+        <td>パスワード</td>
+        <td>password</td>
+        <td>-</td>
+        <td>varchar(256)</td>
+        <td>○</td>
+        <td>-</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+
+    </tbody>
+  </table>
 
 </body>
 </html>
