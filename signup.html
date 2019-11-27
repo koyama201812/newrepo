@@ -8,42 +8,44 @@
   <title>ユーザー登録</title>
 </head>
 <body>
-  <form action="" class="signup__form">
+  <?php if($error_flg == 1): ?>
+    <ul>
+      <?php foreach($errors as $error): ?>
+        <li><?php echo $value; ?></li>
+      <?php endforeach; ?>
+    </ul>
+  <?php endif; ?>
+    </ul>
+  <form method="POST" action="singup_confirm.php" class="signup__form">
     <dl>
       <dt class="form__label"><label class="form__labelName">名前（漢字）</label></dt>
       <dd><input type="text" name="user" class="form__input w90"></dd>
     </dl>
     <dl>
-      <!-- ふりがなは自動入力にさせたい -->
-      <dt class="form__label"><label class="form__labelKanaName">名前（カナ）</label></dt>
-      <dd><input type="text" name="" class="form__input w90"></dd>
-    </dl>
-    <dl>
       <dt class="form__label"><label class="form__labelBirth">誕生日</label></dt>
-      <dd><input type="text" name="" class="form__input w90"></dd>
+      <dd><input type="text" name="birthday" class="form__input w90"></dd>
     </dl>
     <dl>
       <dt class="form__label">
         <label class="form__labelPostCode">郵便番号</label>
         <span class="form__attention">[ハイフンなし]</span>
       </dt>
-      <dd class="d-flex"><span class="mark__post">〒</span><input type="text" name="" class="form__input form__inputpost"></dd>
+      <dd class="d-flex"><span class="mark__post">〒</span><input type="text" name="postcode" id="postCode" class="form__input form__inputpost"></dd>
     </dl>
+      <p id="postCode__error"></p>
     <dl>
       <dt class="form__label"><label class="form__labelAddress">住所</label></dt>
-      <dd><input type="text" name="" class="form__input w90"></dd>
+      <dd><input type="text" name="address" class="form__input w90"></dd>
     </dl>
-    <dl>
-      <dt class="form__label">
-        <label class="form__labelPhoneNum">電話番号</label>
+    <dl> <dt class="form__label"> <label class="form__labelPhoneNum">電話番号</label>
         <span class="form__attention">[ハイフンなし]</span>
       </dt>
-      <dd><input type="text" name="" class="form__input w90"></dd>
+      <dd><input type="text" name="phonenum" class="form__input w90"></dd>
     </dl>
     <dl>
       <!-- メールアドレスは自動その場でデータベースと照合できないか？ -->
       <dt class="form__label"><label class="form__labelEmail">メールアドレス</label></dt>
-      <dd><input type="text" name="" class="form__input w90"></dd>
+      <dd><input type="text" name="email" class="form__input w90"></dd>
       <span class="form__attention">メールアドレスはログインで使用します。</span>
     </dl>
     <dl>
@@ -51,7 +53,7 @@
         <label class="form__labelNickname">ニックネーム</label>
         <span class="form__attention">[8文字以内]</span>
       </dt>
-      <dd><input type="text" name="" class="form__input w90"></dd>
+      <dd><input type="text" name="nickname" class="form__input w90"></dd>
       <span class="form__attention">あとで変更可能です。</span>
     </dl>
     <dl>
@@ -59,12 +61,20 @@
         <label class="form__labelPassword">パスワード</label>
         <span class="form__attention">[何文字以内]</span>
       </dt>
-      <dd><input type="text" name="" class="form__input w90"></dd>
+      <dd><input type="text" name="password" class="form__input w90"></dd>
     </dl>
 
     <input type="submit" value="登録内容を確認する" class="form__submit">
 
   </form>
+<script>
+let postCode = document.getElementById('postCode');
+  postCode.addEventListener('change', function() {
+    if(!postCode.match(/^[0-9]{7}$/)){
+     document.getElementById('postCode__error').text('郵便番号は半角7桁で入力してください'); 
+    }
+  });
+</script>
 </body>
 
 
